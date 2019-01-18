@@ -1,4 +1,4 @@
-# Don't step the grass
+# Don't step on the grass
 
 ## Description
 Minigame that challenges your reflexes. The goal is simple: avoid stepping the grass or face the consequences! Jumping is your best friend.
@@ -16,57 +16,6 @@ Jumper - Our hero will have one single movement: upward. Be careful with the gra
 Levels - The more time you are able to avoid the grass, the faster the ground will move.
 
 ## Data structure
-Main - to define functions to trigger and finish the game:
-- Canvas to link the html file
-- Game as instance of the game file
-- startGame to initialize the game
-- endGame to finish the game
-
-Game - to link the player and obstacles files and control what is displaying:
-- Instance of player
-- Instance of obstacles
-- callback the startGame
-- callback the endGame
-- callback of canvas
-
-Player - to define the constructor of the jumper:
-- Coordinates
-- Img
-- Size
-- callback of canvas
-- drawing function
-
-Obstacle - to define de constructor of the obstacles:
-- Coordinates
-- Img
-- Size
-- Speed
-- callback of canvas
-- drawing function
-
-Ground - to define the constructor of the ground
-- y level
-- callback of canvas
-- drawing function?
-
-
-## States and States Transitions
-Definition of the different states and their transition (transition functions)
-
-SplashScreen
-- splashScreen
-- addEventListener()
-
-GameScreen
-- gameScreen
-- 
-
-gameoverScreen
-- addEventListener()
-
-
-## Task
-States
 - Create html
   - canvas head and body
   - link preload
@@ -115,7 +64,46 @@ States
     - position
   - Ground.protoype.draw
 
+## States and States Transitions
+Definition of the different states and their transition (transition functions)
 
+SplashScreen
+- splashScreen
+- addEventListener()
+
+GameScreen
+- gameScreen
+- 
+
+gameoverScreen
+- addEventListener()
+
+
+## Task
+Game
+- Write the loop
+- Start the loop
+- Add event listeners
+- Create new Player
+- Create one Obstacle
+- Create more obstacles inside the loop
+- Inside the loop, update and draw
+- Clear canvas
+
+Player
+- Write player constructor with attributes
+- Write, update and draw methods
+- Write jump method with eventListener
+
+Obstacle
+- Write obstacle constructor with attributes
+- Write, update and draw methods
+
+Collisions
+- If player collides with the obstacle, lose one life
+
+Lives
+- Update lives
 
 ## Links
 
@@ -126,7 +114,7 @@ States
 
 ### Git
 URls for the project repo and deploy
-[Link Repo](http://github.com)
+https://github.com/vonspiegel/Dont-step-on-the-grass
 [Link Deploy](http://github.com)
 
 
