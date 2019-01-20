@@ -1,0 +1,19 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  /* background-image: url(./images/logo.png); */
+  background-size: cover;
+  font-family: 'Fredericka the Great', cursive;
+  /* font-family: 'VT323', monospace; */
+  margin: 0;
+  padding: 0;
+}
+
+.splash-screen {
+  background-color: #2B353E;
+}

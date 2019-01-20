@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Don't Step On The Grass</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|VT323" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <style>
+      canvas {
+        border: 1px solid black;
+      }
+    </style>
+    <link rel="preload" href="./images/logo.png" as="image">
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="splash-screen">
+        <img src="./images/logo.png" alt="logo">
+        <h1>Don't step on the grass</h1>
+        <a href="game-screen" class="button">Start the Game</a>
+      </div>
+      <div class="game-screen">
+        <canvas id="canvas" width="1000" height="500"></canvas>
+      </div>
+      <div class="end-screen">
+        <img src="./images/grass.png" alt="">
+        <h1>Game Over</h1>
+        <a href="splash-screen" class="button">Try again</a>
+      </div>
+    </div>
+
+    <script src="./main.js"></script>
+    <script src="./game.js"></script>
+  </body>
+</html>
