@@ -9,10 +9,15 @@ function startGameClick() {
   buildGameScreen();
 };
 
+function reloadEndScreen() {
+  destroyGameScreen();
+  buildEndScreen();
+};
+
 function reloadSplashScreen() {
   destroyEndScreen();
   buildSplashScreen();
-}
+};
 
 function buildDom(html) {
   var target = document.querySelector(".container");
@@ -29,7 +34,7 @@ function buildSplashScreen() {
   splashScreen = buildDom(`
   <img src="./images/logo.png" alt="logo">
   <h1>Don't step on the grass</h1>
-  <a href="game-screen" class="button">Start the Game</a>
+  <a href="#" class="button">Start the Game</a>
   `);
 
   splashScreen.querySelector(".button");
@@ -41,24 +46,25 @@ function destroySplashScreen() {
 };
 
 function buildGameScreen() {
-  gameScreen = buildDom();
-  
-  var canvas = document.getElementById("canvas");
-  var gameEnded = function() {
-    game.ended(); //why ended
-    
-  };
-  var onKey = function(event) {
-    switch (event.keyCode) {
-      case 32: game.pressKey();
-      break;
-    };
-  };
-  var game = new Game(canvas, gameEnded); //why gameEnded
-
-  document.addEventListener("keypress", onKey);
+  gameScreen = buildDom(`<div class="game-screen">
+  <canvas id="canvas" width="1000" height="500"></canvas>
+  </div>`);
+  // function back() {
+  //   game.stop();
+  // }
+  var canvas = document.querySelector("canvas");
+  var game = new Game(canvas); //why gameEnded
+ 
+  // var onKey = function(event) {
+  //   switch (event.keyCode) {
+  //     case 32: game.pressKey();
+  //     break;
+  //   };
+  // };
+  // document.addEventListener("keypress", onKey);
   
   game.start();
+
 };
 
 function destroyGameScreen() {
@@ -69,7 +75,7 @@ function buildEndScreen() {
   endScreen = buildDom(`
   <img src="./images/grass.png" alt="">
   <h1>Game Over</h1>
-  <a href="splash-screen" class="button">Try again</a>
+  <a href="#" class="button">Try again</a>
   `);
 
   endScreen.querySelector(".button");
@@ -78,6 +84,6 @@ function buildEndScreen() {
 
 function destroyEndScreen() {
   endScreen = destroyDom();
-}
+};
 
 window.addEventListener("load", buildSplashScreen);
