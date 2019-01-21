@@ -55,13 +55,13 @@ function buildGameScreen() {
   var canvas = document.querySelector("canvas");
   var game = new Game(canvas); //why gameEnded
  
-  // var onKey = function(event) {
-  //   switch (event.keyCode) {
-  //     case 32: game.pressKey();
-  //     break;
-  //   };
-  // };
-  // document.addEventListener("keypress", onKey);
+  var onKey = function(event) {
+    switch (event.keyCode) {
+      case 32: game.pressKey();
+      break;
+    };
+  };
+  document.addEventListener("keypress", onKey);
   
   game.start();
 

@@ -13,11 +13,11 @@ function Game(canvas, gameEndedHandler) { //why gameEndedHandler
   }
 
   this._drawCanvas = function() {
-    this.player.draw();
+    this.ground.draw();
     this.obstacles.forEach(function(obstacle) {
       obstacle.draw();
     });
-    this.ground.draw();
+    this.player.draw();
   };
 
   this._updateGame = function() {
@@ -33,6 +33,8 @@ function Game(canvas, gameEndedHandler) { //why gameEndedHandler
       //   obstacle.die;
       // };
     });
+
+    this.player.update();
     
   };
 
@@ -61,9 +63,9 @@ Game.prototype.start = function() {
 };
 
 Game.prototype.end = function() {
-  window.cancelAnimationFrame(this.aniation);
+  window.cancelAnimationFrame(this.animation);
 }
 
 Game.prototype.pressKey = function() {
-  this.player.setDirection('up');
+  this.player.jump();
 };

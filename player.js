@@ -5,14 +5,14 @@ function Player(canvas, lives) {
   this.x = 100;
   this.y = canvas.height - 120;
   this.lives = lives || 3;
+  this.direction = 1;
   this.canvas = canvas;
   this.ctx = canvas.getContext("2d");
+  this.speed = 1.01;
 };
 
 Player.prototype.jump = function(direction) {
-  if (direction === "up") {
-    this.direction = -1;
-  } 
+  this.speed = -20;
 };
 
 Player.prototype.draw = function() {
@@ -21,10 +21,11 @@ Player.prototype.draw = function() {
 
 Player.prototype.update = function() {
   this.y += this.direction * this.speed;
-  
-  if (this.y = 175) {
-    this.direction *= -1;
-  } else if (this.y >= 150 - this.size) {
-    this.direction = 0;
+  if(this.y < 100) {
+    this.speed = 20;
   }
+  if (this.y >= 380) {
+    this.speed = 0;
+  }
+  console.log(this.y)
 };
