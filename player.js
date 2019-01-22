@@ -32,9 +32,9 @@ Player.prototype.update = function() {
 };
 
 Player.prototype.checkCollideWithObstacle = function(obstacle) {
-  // var collidesRight = this.x + this.size / 2 > obstacle.x - obstacle.size / 2; this.x + this.size > obstacle.x
-  // var collidesLeft = this.x - this.size / 2 < obstacle.x + obstacle.size / 2; this.x < obstacle.x + obstacle.size
-  //  this.y + this.size / 2 > obstacle.y - obstacle.y / 2; this.y + this.size > obstacle.y
+  // var collidesRight = this.x + this.size / 2 > obstacle.x - obstacle.size / 2; 
+  // var collidesLeft = this.x - this.size / 2 < obstacle.x + obstacle.size / 2; 
+  // var collidesBottom = this.y + this.size / 2 > obstacle.y - obstacle.y / 2;
 
   var collidesRight = this.x + this.size > obstacle.x
   var collidesLeft = this.x < obstacle.x + obstacle.size
@@ -49,5 +49,5 @@ Player.prototype.loseLife = function() {
 };
 
 Player.prototype.isDead = function() {
-  return this.lives = 0;
+  return this.lives <= 0;
 }

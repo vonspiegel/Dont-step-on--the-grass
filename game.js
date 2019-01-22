@@ -65,8 +65,10 @@ Game.prototype.start = function() {
 
     this.animation = window.requestAnimationFrame(loop.bind(this));
 
-  //   if (this.player.isDead()) {}
-  // }
+    if (this.player.isDead()) {
+      this.gameEndedHandler();
+    }
+  
   };
 
   window.requestAnimationFrame(loop.bind(this));

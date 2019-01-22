@@ -53,7 +53,12 @@ function buildGameScreen() {
   //   game.stop();
   // }
   var canvas = document.querySelector("canvas");
-  var game = new Game(canvas); //why gameEnded
+  var gameEnded = function() {
+    game.end();
+    destroyGameScreen();
+    buildEndScreen();
+  }
+  var game = new Game(canvas, gameEnded); //why gameEnded
  
   var onKey = function(event) {
     switch (event.keyCode) {
@@ -67,7 +72,7 @@ function buildGameScreen() {
 };
 
 function destroyGameScreen() {
-  gameScreen = destroyDom();
+  destroyDom(gameScreen);
 };
 
 function buildEndScreen() {
@@ -78,11 +83,11 @@ function buildEndScreen() {
   `);
 
   endScreen.querySelector(".button");
-  endScreen.addEventListener("click", reloadSplashScreen);
+  endScreen.addEventListener("click", buildGameScreen);
 };
 
 function destroyEndScreen() {
-  endScreen = destroyDom();
+  destroyDom(endScreen);
 };
 
 window.addEventListener("load", buildSplashScreen);
