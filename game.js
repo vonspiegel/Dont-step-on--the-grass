@@ -1,6 +1,6 @@
 'use strict';
 
-function Game(canvas, gameEndedHandler) { //why gameEndedHandler
+function Game(canvas, gameEndedHandler) { 
   this.ctx = canvas.getContext("2d");
   this.obstacles = [];
   this.animation;
@@ -18,6 +18,7 @@ function Game(canvas, gameEndedHandler) { //why gameEndedHandler
       obstacle.draw();
     });
     this.player.draw();
+    this._drawLives(this.player.lives);
   };
 
   this._updateGame = function() {
@@ -46,6 +47,7 @@ function Game(canvas, gameEndedHandler) { //why gameEndedHandler
         obstacle.die();
       }
     }.bind(this));
+
   };
 
   this._createObstacle = function() {
@@ -55,6 +57,11 @@ function Game(canvas, gameEndedHandler) { //why gameEndedHandler
     this.obstacles.push(new Obstacle(canvas, speed, y));
   };
 
+  this._drawLives = function(numberOfLives) {
+    this.ctx.fillStyle = "black";
+    this.ctx.font = "20px Arial";
+    this.ctx.fillText("Lives " + numberOfLives, 750, 100);
+  }
 };
 
 Game.prototype.start = function() {
