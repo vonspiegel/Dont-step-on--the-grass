@@ -36,6 +36,9 @@ function Game(canvas, gameEndedHandler) { //why gameEndedHandler
 
     this.player.update();
     
+    this.obstacles = this.obstacles.filter(function(enemy) {
+      return enemy.isInScreen();
+    })
   };
 
   this._createObstacle = function() {

@@ -8,10 +8,10 @@ function Player(canvas, lives) {
   this.direction = 1;
   this.canvas = canvas;
   this.ctx = canvas.getContext("2d");
-  this.speed = 1.01;
+  this.speed = 0;
 };
 
-Player.prototype.jump = function(direction) {
+Player.prototype.jump = function() {
   this.speed = -20;
 };
 
@@ -21,11 +21,20 @@ Player.prototype.draw = function() {
 
 Player.prototype.update = function() {
   this.y += this.direction * this.speed;
-  if(this.y < 100) {
-    this.speed = 20;
+
+  if(this.y < 150) {
+    this.speed += 2;
   }
   if (this.y >= 380) {
     this.speed = 0;
   }
   console.log(this.y)
 };
+
+Player.prototype.checkCollideWithObstacle = function(obstacle) {
+  var collidesRight = this.x + this.size / 2 > obstacle.x - obstacle.size / 2;
+  var collidesLeft = this.x - this.size / 2 < obstacle.x + obstacle.size / 2;
+  var collidesBottom = this.y + this.size / 2 > obstacle.y - obstacle.y / 2;
+
+  return collidesRight && collidesLeft && collidesBottom;
+}
