@@ -12,7 +12,9 @@ function Player(canvas, lives) {
 };
 
 Player.prototype.jump = function() {
-  this.speed = -20;
+  if(this.y === 380) {
+    this.speed = -20;
+  }
 };
 
 Player.prototype.draw = function() {
