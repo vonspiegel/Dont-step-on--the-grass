@@ -22,7 +22,7 @@ function Game(canvas, gameEndedHandler) {
   };
 
   this._updateGame = function() {
-    if (Math.random() > 0.95) {
+    if (Math.random() > 0.97) {
       this._createObstacle();
     };
 
@@ -51,7 +51,7 @@ function Game(canvas, gameEndedHandler) {
   };
 
   this._createObstacle = function() {
-    var speed = 5;
+    var speed = 3.5;
     var y = 750;
 
     this.obstacles.push(new Obstacle(canvas, speed, y));

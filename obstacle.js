@@ -3,7 +3,7 @@
 function Obstacle(canvas, speed, y) {
   this.x = canvas.width;
   this.y = canvas.height - 90;
-  this.size = 20;
+  this.size = 25;
   this.speed = speed;
   this.ctx = canvas.getContext("2d");
 };

@@ -32,9 +32,11 @@ function destroyDom(target) {
 
 function buildSplashScreen() {
   splashScreen = buildDom(`
+  <div class="splash-container">
   <img src="./images/logo.png" alt="logo">
   <h1>Don't step on the grass</h1>
   <a href="#" class="button">Start the Game</a>
+  </div>
   `);
 
   splashScreen.querySelector(".button");
@@ -49,9 +51,7 @@ function buildGameScreen() {
   gameScreen = buildDom(`<div class="game-screen">
   <canvas id="canvas" width="1000" height="500"></canvas>
   </div>`);
-  // function back() {
-  //   game.stop();
-  // }
+  
   var canvas = document.querySelector("canvas");
   var gameEnded = function() {
     game.end();
