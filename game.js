@@ -28,17 +28,24 @@ function Game(canvas, gameEndedHandler) { //why gameEndedHandler
     this.obstacles.filter(function(obstacle) {
       obstacle.update();
 
-      // if (this.player.checkCollideWithObstacle(obstacle)) {
-      //   this.player.loseLife();
-      //   obstacle.die;
-      // };
+      
     });
 
     this.player.update();
     
-    this.obstacles = this.obstacles.filter(function(enemy) {
-      return enemy.isInScreen();
-    })
+    this.obstacles = this.obstacles.filter(function(obstacle) {
+      return obstacle.isInScreen();
+    });
+
+    this.obstacles.forEach(function(obstacle) {
+      obstacle.update();
+
+      if (this.player.checkCollideWithObstacle(obstacle)) {
+        this.player.loseLife();
+        
+        obstacle.die();
+      }
+    }.bind(this));
   };
 
   this._createObstacle = function() {

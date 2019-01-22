@@ -64,7 +64,6 @@ function buildGameScreen() {
   document.addEventListener("keypress", onKey);
   
   game.start();
-
 };
 
 function destroyGameScreen() {
