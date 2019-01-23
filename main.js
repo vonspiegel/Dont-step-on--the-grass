@@ -39,8 +39,9 @@ function buildSplashScreen() {
     <div class="splash-button">
       <a href="#" class="button">PLAY</a>
     </div>
-    <div>
+    <div class="rules">
       <p>Rules</p>
+      <div class="dropdown"><h1>Press the space bar for jumping</h1></div>
     </div>
   </div>
   `);

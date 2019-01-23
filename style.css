@@ -96,3 +96,19 @@ h1 {
   border-style: solid;
   margin: 0 420px; 
 }
+
+.dropdown{
+  display: none;
+  background-color: red;
+  min-width: 5rem;
+  min-height: 5rem;
+  z-index: 1
+}
+
+.rules:hover .dropdown{
+  display: block;
+}
+
+.rules p{
+  width: 150px;
+}

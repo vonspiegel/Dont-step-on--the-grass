@@ -9,6 +9,8 @@ function Player(canvas, lives) {
   this.canvas = canvas;
   this.ctx = canvas.getContext("2d");
   this.speed = 0;
+  this.img = new Image();
+  this.img.src = "./images/Old hero.png"
 };
 
 Player.prototype.jump = function() {
@@ -18,8 +20,12 @@ Player.prototype.jump = function() {
 };
 
 Player.prototype.draw = function() {
-  this.ctx.fillRect(this.x, this.y, this.size, this.size);
+  this.ctx.drawImage(this.img, this.x, this.y, this.size, this.size);
 };
+
+// Player.prototype.draw = function() {
+//   this.ctx.fillRect(this.x, this.y, this.size, this.size);
+// };
 
 Player.prototype.update = function() {
   this.y += this.direction * this.speed;
