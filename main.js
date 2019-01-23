@@ -37,7 +37,10 @@ function buildSplashScreen() {
       <h1>Don't step on the grass</h1>
     </div>
     <div class="splash-button">
-      <a href="#" class="button">Start the Game</a>
+      <a href="#" class="button">PLAY</a>
+    </div>
+    <div>
+      <p>Rules</p>
     </div>
   </div>
   `);
@@ -80,9 +83,14 @@ function destroyGameScreen() {
 
 function buildEndScreen() {
   endScreen = buildDom(`
-  <img src="./images/grass.png" alt="">
-  <h1>Game Over</h1>
-  <a href="#" class="button">Try again</a>
+  <div class="end-screen">
+    <div class="end-h1">
+      <h1>Game Over</h1>
+    </div>
+    <div class="end-button">
+      <a href="#" class="button">Try again</a>
+    </div>
+  </div>
   `);
 
   endScreen.querySelector(".button");

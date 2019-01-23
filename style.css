@@ -12,8 +12,9 @@ body {
 }
 
 h1 {
-  padding-bottom: 300px;
-  font-size: 250%;
+  padding-bottom: 240px;
+  padding-top: 50px;
+  font-size: 350%;
   text-shadow: 11px 8px 8px rgba(149, 150, 150, 1);
   margin-bottom: 0px;
 }
@@ -36,7 +37,62 @@ h1 {
 .splash-button {
   border-style: solid;
   display: block;
-  margin: 0 300px;
+  margin: 65px 410px 0 410px;
   font-size: 150%;
+  
+}
+
+.splash-button .button {
   text-decoration: none;
+  pointer-events: none;
+  color: green;
+}
+
+.splash-button .button:hover {
+  cursor: pointer;
+  box-shadow: 11px 8px 8px rgba(149, 150, 150, 1);
+}
+
+.splash-container p {
+  font-size: 18px
+}
+
+.game-screen {
+  background-image: url(./images/Background.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.game-screen canvas {
+  position: center center
+}
+
+.end-screen {
+  background-image: url(./images/grass.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  text-align: center;
+  width: 1000px;
+  min-height: 100vh;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.end-screen h1 {
+  font-size: 330%;
+  padding: 0 0 150px 0;
+}
+
+.end-screen .button {
+  font-size: 30px;
+  text-decoration: none;
+  color: beige;
+  display: block;
+  border-style: solid;
+  margin: 0 420px; 
 }
