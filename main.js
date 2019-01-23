@@ -33,9 +33,12 @@ function destroyDom(target) {
 function buildSplashScreen() {
   splashScreen = buildDom(`
   <div class="splash-container">
-  <img src="./images/logo.png" alt="logo">
-  <h1>Don't step on the grass</h1>
-  <a href="#" class="button">Start the Game</a>
+    <div class="splash-h1">
+      <h1>Don't step on the grass</h1>
+    </div>
+    <div class="splash-button">
+      <a href="#" class="button">Start the Game</a>
+    </div>
   </div>
   `);
 

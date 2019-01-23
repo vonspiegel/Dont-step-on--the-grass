@@ -5,15 +5,38 @@ html {
   box-sizing: inherit;
 }
 
-body, ul {
+body {
+  font-family: 'Fredericka the Great', cursive;
   margin: 0;
   padding: 0;
 }
 
+h1 {
+  padding-bottom: 300px;
+  font-size: 250%;
+  text-shadow: 11px 8px 8px rgba(149, 150, 150, 1);
+  margin-bottom: 0px;
+}
+
 .splash-container {
-  background-position: center;
-  background-size: 400px auto;
-  display: block;
+  background-image: url(./images/logo.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
   text-align: center;
-  
+  width: 1000px;
+  min-height: 100vh;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.splash-button {
+  border-style: solid;
+  display: block;
+  margin: 0 300px;
+  font-size: 150%;
+  text-decoration: none;
 }

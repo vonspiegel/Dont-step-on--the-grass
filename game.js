@@ -7,6 +7,8 @@ function Game(canvas, gameEndedHandler) {
   this.gameEndedHandler = gameEndedHandler;
   this.player = new Player(canvas);
   this.ground = new Ground(canvas);
+  this.speedCounter = 0;
+  this.intervalId;
 
   this._clearCanvas = function() {
     this.ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -51,8 +53,10 @@ function Game(canvas, gameEndedHandler) {
   };
 
   this._createObstacle = function() {
-    var speed = 3.5;
+    var speed = 3.5 + this.speedCounter;
+    this.speedCounter++
     var y = 750;
+
 
     this.obstacles.push(new Obstacle(canvas, speed, y));
   };
@@ -65,6 +69,7 @@ function Game(canvas, gameEndedHandler) {
 };
 
 Game.prototype.start = function() {
+  this.intervalId = setInterval(this._createObstacle, 2000)
   function loop() {
     this._updateGame();
     this._clearCanvas();
@@ -83,6 +88,7 @@ Game.prototype.start = function() {
 
 Game.prototype.end = function() {
   window.cancelAnimationFrame(this.animation);
+  clearInterval(this.intervalId)
 }
 
 Game.prototype.pressKey = function() {
