@@ -7,13 +7,13 @@ function Game(canvas, gameEndedHandler) {
   this.gameEndedHandler = gameEndedHandler;
   this.player = new Player(canvas);
   this.ground = new Ground(canvas);
-  this.speedCounter = 3.5;
+  this.speedCounter = 3.0;
   this.intervalId;
   this.level = 1;
 
   this._clearCanvas = function() {
     this.ctx.clearRect(0, 0, canvas.width, canvas.height);
-  }
+  };
 
   this._drawCanvas = function() {
     this.ground.draw();
@@ -58,7 +58,6 @@ function Game(canvas, gameEndedHandler) {
     
     var y = 750;
 
-
     this.obstacles.push(new Obstacle(canvas, this.speedCounter, y));
   };
 
@@ -77,7 +76,8 @@ Game.prototype.start = function() {
   this.intervalId = setInterval(function() {
     this.speedCounter++;
     this.level++;
-  }.bind(this), 5000);
+  }.bind(this), 7000);
+  
   function loop() {
     this._updateGame();
     this._clearCanvas();

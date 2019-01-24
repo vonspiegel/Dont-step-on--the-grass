@@ -40,7 +40,8 @@ function buildSplashScreen() {
       <a href="#" class="button">PLAY</a>
     </div>
     <div class="rules">
-      <p>Rules</p>
+      <p>Controls</p>
+      <span class="empty">&nbsp;</span>
       <span class="dropdown">Press the space bar for jumping</span>
     </div>
   </div>

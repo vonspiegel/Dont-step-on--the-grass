@@ -3,16 +3,12 @@
 function Obstacle(canvas, speed, y) {
   this.x = canvas.width;
   this.y = canvas.height - 90;
-  this.size = 30;
+  this.size = 35;
   this.speed = speed;
   this.ctx = canvas.getContext("2d");
   this.img = new Image();
   this.img.src = "./images/piece of grass.png"
 };
-
-// Obstacle.prototype.draw = function() {
-//   this.ctx.fillRect(this.x, this.y, this.size, this.size);
-// };
 
 Obstacle.prototype.draw = function() {
   this.ctx.drawImage(this.img, this.x, this.y, this.size, this.size);
