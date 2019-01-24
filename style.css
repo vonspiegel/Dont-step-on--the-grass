@@ -12,7 +12,7 @@ body {
 }
 
 h1 {
-  padding-bottom: 240px;
+  padding-bottom: 20px;
   padding-top: 50px;
   font-size: 350%;
   text-shadow: 11px 8px 8px rgba(149, 150, 150, 1);
@@ -37,13 +37,14 @@ h1 {
 .splash-button {
   border-style: solid;
   display: block;
-  margin: 130px 410px 0 410px;
+  margin: 20px 410px;
   font-size: 150%;
+  background-color: black;
 }
 
 .splash-button .button {
   text-decoration: none;
-  color: green;
+  color: white
 }
 
 .splash-button:hover {
@@ -96,7 +97,8 @@ h1 {
 .end-screen .button {
   font-size: 30px;
   text-decoration: none;
-  color: beige;
+  background-color: beige;
+  color: black;
   display: block;
   border-style: solid;
   margin: 0 420px; 
@@ -105,7 +107,8 @@ h1 {
 .end-screen .button:hover {
   cursor: pointer;
   box-shadow: 11px 8px 8px rgba(149, 150, 150, 1);
-  background-color: red
+  background-color: black;
+  color: beige
 }
 
 .dropdown {
@@ -134,9 +137,14 @@ h1 {
 
 .rules p {
   cursor: not-allowed;
+  color: black;
+  font-size: 1.5rem;
+  text-shadow: rgba(149, 150, 150, 1);
   display: block;
-  font-size: 1.3rem;
-  margin: 15px 0;
+  border-style: solid;
+  border-color: black;
+  margin: 0 30%;
+  background-color: white;
 }
 
 .empty {
