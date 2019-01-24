@@ -7,8 +7,9 @@ function Game(canvas, gameEndedHandler) {
   this.gameEndedHandler = gameEndedHandler;
   this.player = new Player(canvas);
   this.ground = new Ground(canvas);
-  this.speedCounter = 0;
+  this.speedCounter = 3.5;
   this.intervalId;
+  this.level = 1;
 
   this._clearCanvas = function() {
     this.ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -21,10 +22,11 @@ function Game(canvas, gameEndedHandler) {
     });
     this.player.draw();
     this._drawLives(this.player.lives);
+    this._drawLevel();
   };
 
   this._updateGame = function() {
-    if (Math.random() > 0.97) {
+    if (Math.random() > 0.985) {
       this._createObstacle();
     };
 
@@ -53,12 +55,11 @@ function Game(canvas, gameEndedHandler) {
   };
 
   this._createObstacle = function() {
-    var speed = 3.5 + this.speedCounter;
-    this.speedCounter++
+    
     var y = 750;
 
 
-    this.obstacles.push(new Obstacle(canvas, speed, y));
+    this.obstacles.push(new Obstacle(canvas, this.speedCounter, y));
   };
 
   this._drawLives = function(numberOfLives) {
@@ -66,10 +67,17 @@ function Game(canvas, gameEndedHandler) {
     this.ctx.font = "20px Arial";
     this.ctx.fillText("Lives " + numberOfLives, 750, 100);
   }
+
+  this._drawLevel = function() {
+    this.ctx.fillText("Level " + this.level, 500, 100);
+  }
 };
 
 Game.prototype.start = function() {
-  this.intervalId = setInterval(this._createObstacle, 2000)
+  this.intervalId = setInterval(function() {
+    this.speedCounter++;
+    this.level++;
+  }.bind(this), 5000);
   function loop() {
     this._updateGame();
     this._clearCanvas();

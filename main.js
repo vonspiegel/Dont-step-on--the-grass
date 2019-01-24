@@ -41,7 +41,7 @@ function buildSplashScreen() {
     </div>
     <div class="rules">
       <p>Rules</p>
-      <div class="dropdown"><h1>Press the space bar for jumping</h1></div>
+      <span class="dropdown">Press the space bar for jumping</span>
     </div>
   </div>
   `);
@@ -65,7 +65,7 @@ function buildGameScreen() {
     destroyGameScreen();
     buildEndScreen();
   }
-  var game = new Game(canvas, gameEnded); //why gameEnded
+  var game = new Game(canvas, gameEnded);
  
   var onKey = function(event) {
     switch (event.keyCode) {

@@ -48,9 +48,10 @@ h1 {
   color: green;
 }
 
-.splash-button .button:hover {
+.button:hover {
   cursor: pointer;
   box-shadow: 11px 8px 8px rgba(149, 150, 150, 1);
+  color: red
 }
 
 .splash-container p {
@@ -58,10 +59,16 @@ h1 {
 }
 
 .game-screen {
+  margin: auto auto;
+  width: 80%;
+}
+
+.game-screen canvas {
   background-image: url(./images/Background.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
+  z-index: -1
 }
 
 .game-screen canvas {
@@ -97,18 +104,26 @@ h1 {
   margin: 0 420px; 
 }
 
-.dropdown{
+.dropdown {
   display: none;
-  background-color: red;
+  background-color: grey;
   min-width: 5rem;
   min-height: 5rem;
   z-index: 1
 }
 
-.rules:hover .dropdown{
+.rules:hover .dropdown {
   display: block;
+  font-size: 1.1rem;
+  /* margin: 0 330px; */
+  max-width: 20%;
+  padding-bottom: 0;
+  margin: auto;
+  padding-top: 19px;
+  transition-duration: 1s;
 }
 
-.rules p{
-  width: 150px;
+.rules p {
+  display: block;
+  font-size: 1.3rem;
 }

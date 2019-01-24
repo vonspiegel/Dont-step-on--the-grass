@@ -11,21 +11,28 @@ function Player(canvas, lives) {
   this.speed = 0;
   this.img = new Image();
   this.img.src = "./images/Old hero.png"
+  this.jumpImg = new Image();
+  this.jumpImg.src = "./images/Old hero jumping.png";
+  this.isJumping = false;
 };
 
 Player.prototype.jump = function() {
   if(this.y === 380) {
     this.speed = -20;
-  }
+    this.isJumping = true;
+  };
 };
 
 Player.prototype.draw = function() {
-  this.ctx.drawImage(this.img, this.x, this.y, this.size, this.size);
+  
+  if (this.isJumping) {
+    this.ctx.drawImage(this.jumpImg, this.x, this.y, this.size, this.size);
+  } else {
+    this.ctx.drawImage(this.img, this.x, this.y, this.size, this.size);
+  }
 };
 
-// Player.prototype.draw = function() {
-//   this.ctx.fillRect(this.x, this.y, this.size, this.size);
-// };
+
 
 Player.prototype.update = function() {
   this.y += this.direction * this.speed;
@@ -35,15 +42,12 @@ Player.prototype.update = function() {
   }
   if (this.y >= 380) {
     this.speed = 0;
+    this.isJumping = false;
   }
   console.log(this.y)
 };
 
 Player.prototype.checkCollideWithObstacle = function(obstacle) {
-  // var collidesRight = this.x + this.size / 2 > obstacle.x - obstacle.size / 2; 
-  // var collidesLeft = this.x - this.size / 2 < obstacle.x + obstacle.size / 2; 
-  // var collidesBottom = this.y + this.size / 2 > obstacle.y - obstacle.y / 2;
-
   var collidesRight = this.x + this.size > obstacle.x
   var collidesLeft = this.x < obstacle.x + obstacle.size
   var collidesBottom = this.y + this.size > obstacle.y
