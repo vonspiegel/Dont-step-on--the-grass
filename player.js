@@ -14,13 +14,17 @@ function Player(canvas, lives) {
   this.jumpImg = new Image();
   this.jumpImg.src = "./images/Old hero jumping.png";
   this.isJumping = false;
+  this.jumping = new Audio("./sounds/Jump-SoundBible.com-1007297584.mp3");
 };
 
 Player.prototype.jump = function() {
   if(this.y === 380) {
     this.speed = -20;
     this.isJumping = true;
+    this.jumping.play();
   };
+
+  this.jumping.stop();
 };
 
 Player.prototype.draw = function() {

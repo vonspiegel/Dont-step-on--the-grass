@@ -10,6 +10,7 @@ function Game(canvas, gameEndedHandler) {
   this.speedCounter = 3.0;
   this.intervalId;
   this.level = 1;
+  this.crash = new Audio("./sounds/Strong_Punch-Mike_Koenig-574430706.mp3");
 
   this._clearCanvas = function() {
     this.ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -47,6 +48,7 @@ function Game(canvas, gameEndedHandler) {
 
       if (this.player.checkCollideWithObstacle(obstacle)) {
         this.player.loseLife();
+        this.crash.play();
         
         obstacle.die();
       }
