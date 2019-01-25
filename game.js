@@ -7,7 +7,7 @@ function Game(canvas, gameEndedHandler) {
   this.gameEndedHandler = gameEndedHandler;
   this.player = new Player(canvas);
   this.ground = new Ground(canvas);
-  this.speedCounter = 3.0;
+  this.speedCounter = 4.0;
   this.intervalId;
   this.level = 1;
   this.crash = new Audio("./sounds/Strong_Punch-Mike_Koenig-574430706.mp3");
