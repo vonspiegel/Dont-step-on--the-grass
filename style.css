@@ -58,8 +58,13 @@ h1 {
 }
 
 .game-screen {
-  margin: auto auto;
-  width: 80%;
+  margin: 0 auto;
+  width: 1000px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  flex-direction: column;
 }
 
 .game-screen canvas {
@@ -68,10 +73,6 @@ h1 {
   background-repeat: no-repeat;
   background-position: center center;
   z-index: -1
-}
-
-.game-screen canvas {
-  position: center center
 }
 
 .end-screen {

@@ -11,6 +11,7 @@ function Game(canvas, gameEndedHandler) {
   this.intervalId;
   this.level = 1;
   this.crash = new Audio("./sounds/Strong_Punch-Mike_Koenig-574430706.mp3");
+  this.soundtrack = new Audio("./sounds/Electric_Rain.mp3");
 
   this._clearCanvas = function() {
     this.ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -31,25 +32,17 @@ function Game(canvas, gameEndedHandler) {
       this._createObstacle();
     };
 
-    this.obstacles.filter(function(obstacle) {
-      obstacle.update();
-
-      
-    });
-
-    this.player.update();
-    
     this.obstacles = this.obstacles.filter(function(obstacle) {
       return obstacle.isInScreen();
     });
 
+    this.player.update();
+
     this.obstacles.forEach(function(obstacle) {
       obstacle.update();
-
       if (this.player.checkCollideWithObstacle(obstacle)) {
         this.player.loseLife();
         this.crash.play();
-        
         obstacle.die();
       }
     }.bind(this));
@@ -75,6 +68,7 @@ function Game(canvas, gameEndedHandler) {
 };
 
 Game.prototype.start = function() {
+  this.soundtrack.play();
   this.intervalId = setInterval(function() {
     this.speedCounter++;
     this.level++;
@@ -84,19 +78,20 @@ Game.prototype.start = function() {
     this._updateGame();
     this._clearCanvas();
     this._drawCanvas();
-
-    this.animation = window.requestAnimationFrame(loop.bind(this));
-
+    
     if (this.player.isDead()) {
       this.gameEndedHandler();
+    } else {
+      this.animation = window.requestAnimationFrame(loop.bind(this));
     }
-  
   };
 
   window.requestAnimationFrame(loop.bind(this));
 };
 
 Game.prototype.end = function() {
+  this.soundtrack.pause();
+  this.soundtrack.currentTime = 0;
   window.cancelAnimationFrame(this.animation);
   clearInterval(this.intervalId)
 }

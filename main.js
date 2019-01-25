@@ -3,6 +3,8 @@
 var splashScreen;
 var gameScreen;
 var endScreen;
+var startButton;
+var restartButton;
 
 function startGameClick() {
   destroySplashScreen();
@@ -47,8 +49,8 @@ function buildSplashScreen() {
   </div>
   `);
 
-  splashScreen.querySelector(".button");
-  splashScreen.addEventListener("click", startGameClick);
+  startButton = splashScreen.querySelector(".button");
+  startButton.addEventListener("click", startGameClick);
 };
 
 function destroySplashScreen() {
@@ -63,8 +65,7 @@ function buildGameScreen() {
   var canvas = document.querySelector("canvas");
   var gameEnded = function() {
     game.end();
-    destroyGameScreen();
-    buildEndScreen();
+    reloadEndScreen();
   }
   var game = new Game(canvas, gameEnded);
  
@@ -95,8 +96,8 @@ function buildEndScreen() {
   </div>
   `);
 
-  endScreen.querySelector(".button");
-  endScreen.addEventListener("click", buildGameScreen);
+  restartButton = endScreen.querySelector(".button");
+  restartButton.addEventListener("click", buildGameScreen);
 };
 
 function destroyEndScreen() {

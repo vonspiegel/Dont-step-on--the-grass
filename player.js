@@ -22,9 +22,9 @@ Player.prototype.jump = function() {
     this.speed = -20;
     this.isJumping = true;
     this.jumping.play();
-  };
+  } 
+    this.jumping.currentTime = 0;
 
-  this.jumping.stop();
 };
 
 Player.prototype.draw = function() {
@@ -48,20 +48,18 @@ Player.prototype.update = function() {
     this.speed = 0;
     this.isJumping = false;
   }
-  console.log(this.y)
 };
 
 Player.prototype.checkCollideWithObstacle = function(obstacle) {
-  var collidesRight = this.x + this.size > obstacle.x
-  var collidesLeft = this.x < obstacle.x + obstacle.size
-  var collidesBottom = this.y + this.size > obstacle.y
+  var collidesRight = this.x + this.size >= obstacle.x;
+  var collidesLeft = this.x <= obstacle.x + obstacle.size
+  var collidesBottom = this.y + this.size >= obstacle.y
 
   return collidesRight && collidesLeft && collidesBottom;
 };
 
 Player.prototype.loseLife = function() {
   this.lives--;
-  console.log(`Lifes remaining: ${this.lives}`);
 };
 
 Player.prototype.isDead = function() {

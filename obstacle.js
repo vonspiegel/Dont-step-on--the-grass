@@ -23,5 +23,5 @@ Obstacle.prototype.isInScreen = function() {
 };
 
 Obstacle.prototype.die = function() {
-  this.x = -1500;
+  this.x = 1500;
 }
