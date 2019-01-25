@@ -98,7 +98,7 @@ h1 {
 .end-screen .button {
   font-size: 30px;
   text-decoration: none;
-  background-color: beige;
+  background-color: white;
   color: black;
   display: block;
   border-style: solid;
@@ -109,7 +109,7 @@ h1 {
   cursor: pointer;
   box-shadow: 11px 8px 8px rgba(149, 150, 150, 1);
   background-color: black;
-  color: beige
+  color: white
 }
 
 .dropdown {
